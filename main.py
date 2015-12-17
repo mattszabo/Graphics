@@ -18,17 +18,17 @@ Z_AXIS = 0.0
 DIRECTION = 1
 
 cube = shapes.Box()
+
+def InitGL(width, height): 
  
-def InitGL(Width, Height): 
- 
-        glClearColor(0.0, 0.0, 0.0, 0.0)
+        glClearColor(1.0, 1.0, 1.0, 0.0)
         glClearDepth(1.0) 
         glDepthFunc(GL_LESS)
         glEnable(GL_DEPTH_TEST)
         glShadeModel(GL_SMOOTH)   
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
-        gluPerspective(45.0, float(Width)/float(Height), 0.1, 100.0)
+        gluPerspective(60.0, float(width)/float(height), 0.1, 1000.0)
         glMatrixMode(GL_MODELVIEW)
  
 def keyPressed(*args):
@@ -49,9 +49,7 @@ def DrawGLScene():
         glRotatef(Y_AXIS,0.0,1.0,0.0)
         glRotatef(Z_AXIS,0.0,0.0,1.0)
  
-        # Draw Cube (multiple quads)
         cube.draw()
- 
  
         X_AXIS = X_AXIS - 0.30
         Z_AXIS = Z_AXIS - 0.30
